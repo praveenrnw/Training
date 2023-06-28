@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:training/list_of_colors/colors.dart';
+import 'package:training/main.dart';
+import 'package:get/get.dart';
 
 class ColorsList extends StatefulWidget {
   const ColorsList({super.key});
@@ -14,9 +16,9 @@ class _MyHomePageState extends State<ColorsList> {
     return Scaffold(
       backgroundColor: Colors.blueGrey[600],
       appBar: AppBar(
-          leading: const Icon(Icons.color_lens_outlined, color: Colors.black, size: 25),
-          title: const Text(
-              'Flutter Colors',
+          leading: const Icon(Icons.color_lens_outlined,
+              color: Colors.black, size: 25),
+          title: const Text('Flutter Colors',
               style: TextStyle(
                 color: Colors.black,
                 fontWeight: FontWeight.w600,
@@ -29,73 +31,43 @@ class _MyHomePageState extends State<ColorsList> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Center(
-              child: MyColors(
-                  bgColor: Colors.red,
-                  colorName: 'RED'
-              ),
+              child: MyColors(bgColor: Colors.red, colorName: 'RED'),
             ),
             SizedBox(height: 5),
             Center(
-              child: MyColors(
-                  bgColor: Colors.yellow,
-                  colorName: 'YELLOW'
-              ),
+              child: MyColors(bgColor: Colors.yellow, colorName: 'YELLOW'),
             ),
             SizedBox(height: 5),
             Center(
-              child: MyColors(
-                  bgColor: Colors.green,
-                  colorName: 'GREEN'
-              ),
+              child: MyColors(bgColor: Colors.green, colorName: 'GREEN'),
             ),
             SizedBox(height: 5),
             Center(
-              child: MyColors(
-                  bgColor: Colors.blue,
-                  colorName: 'BLUE'
-              ),
+              child: MyColors(bgColor: Colors.blue, colorName: 'BLUE'),
             ),
             SizedBox(height: 5),
             Center(
-              child: MyColors(
-                  bgColor: Colors.white,
-                  colorName: 'WHITE'
-              ),
+              child: MyColors(bgColor: Colors.white, colorName: 'WHITE'),
             ),
             SizedBox(height: 5),
             Center(
-              child: MyColors(
-                  bgColor: Colors.orange,
-                  colorName: 'ORANGE'
-              ),
+              child: MyColors(bgColor: Colors.orange, colorName: 'ORANGE'),
             ),
             SizedBox(height: 5),
             Center(
-              child: MyColors(
-                  bgColor: Colors.purple,
-                  colorName: 'PURPLE'
-              ),
+              child: MyColors(bgColor: Colors.purple, colorName: 'PURPLE'),
             ),
             SizedBox(height: 5),
             Center(
-              child: MyColors(
-                  bgColor: Colors.grey,
-                  colorName: 'GREY'
-              ),
+              child: MyColors(bgColor: Colors.grey, colorName: 'GREY'),
             ),
             SizedBox(height: 5),
             Center(
-              child: MyColors(
-                  bgColor: Colors.brown,
-                  colorName: 'BROWN'
-              ),
+              child: MyColors(bgColor: Colors.brown, colorName: 'BROWN'),
             ),
             SizedBox(height: 5),
             Center(
-              child: MyColors(
-                  bgColor: Colors.lime,
-                  colorName: 'LIME'
-              ),
+              child: MyColors(bgColor: Colors.lime, colorName: 'LIME'),
             ),
             MyPopButton(),
           ],
@@ -111,8 +83,9 @@ class MyPopButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: (){
-        Navigator.pop(context);
+      onTap: () {
+        //Navigator.pop(context);
+        Get.back();
       },
       child: const Text(
         'Home Page',

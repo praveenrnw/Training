@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:training/build_values/build_values.dart';
+import 'package:training/future/future.dart';
 import 'package:training/http_request/httpMain.dart';
 import 'package:training/inherited_widgets/root_widget.dart';
 import 'package:training/login_register_ui/pages/auth_page.dart';
@@ -11,7 +12,7 @@ import 'package:training/Calculator/calculator.dart';
 import 'button_color_change/button_color_change.dart';
 import 'sort/sort.dart';
 import 'form/form.dart';
-import 'package:training/provider_state_management/eligibility_screen.dart';
+import 'package:get/get.dart';
 
 void main() {
   runApp(const MyApp());
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
@@ -67,67 +68,71 @@ class _MyHomePageState extends State<MyHomePage> {
             child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SizedBox(height: 30),
             MyButton(
               btnName: 'Login Page',
               page: AuthPage(),
             ),
-            SizedBox(height: 30),
+            SizedBox(height: 10),
             MyButton(
               btnName: 'User Details',
               page: UserDetails(),
             ),
-            SizedBox(height: 30),
+            SizedBox(height: 10),
             MyButton(
               btnName: 'List Of Colors',
               page: ColorsList(),
             ),
-            SizedBox(height: 30),
+            SizedBox(height: 10),
             MyButton(
               btnName: 'Calculator',
               page: Calculator(),
             ),
-            SizedBox(height: 30),
+            SizedBox(height: 10),
             MyButton(
               btnName: 'Button Color Change',
               page: BtnColorChange(),
             ),
-            SizedBox(height: 30),
+            SizedBox(height: 10),
             MyButton(
               btnName: 'Sort',
               page: Sort(),
             ),
-            SizedBox(height: 30),
+            SizedBox(height: 10),
             MyButton(
               btnName: 'Form',
               page: MyForm(),
             ),
-            SizedBox(height: 30),
+            SizedBox(height: 10),
             MyButton(
               btnName: 'Built Values',
               page: MyBuildValues(),
             ),
-            SizedBox(height: 30),
+            SizedBox(height: 10),
             MyButton(
               btnName: 'HTTP',
               page: HttpMain(),
             ),
-            SizedBox(height: 30),
+            SizedBox(height: 10),
             MyButton(
               btnName: 'Inherited Widget',
               page: RootWidget(),
             ),
-            SizedBox(height: 30),
+            SizedBox(height: 10),
             MyButton(
               btnName: 'Provider State Management',
               page: EligiblityScreen(),
             ),
-            SizedBox(height: 30),
+            SizedBox(height: 10),
             MyButton(
               btnName: 'State Notifier Provider',
               page: MyStateApp(),
             ),
-            SizedBox(height: 30),
+            SizedBox(height: 10),
+            MyButton(
+              btnName: 'Future',
+              page: MyFutureClass(),
+            ),
+            SizedBox(height: 10),
           ],
         )),
       ),
@@ -148,19 +153,20 @@ class MyButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 10),
+      padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 8),
       decoration: BoxDecoration(
         color: Colors.lime[500],
         borderRadius: BorderRadius.circular(4),
       ),
       child: GestureDetector(
         onTap: () {
-          Navigator.push(
+          /*Navigator.push(
             context,
             MaterialPageRoute(
               builder: (p) => page,
             ),
-          );
+          );*/
+          Get.to(page);
         },
         child: Text(
           btnName,
