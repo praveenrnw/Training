@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:training/build_values/build_values.dart';
+import 'package:training/http_request/httpMain.dart';
+import 'package:training/inherited_widgets/root_widget.dart';
 import 'package:training/login_register_ui/pages/auth_page.dart';
+import 'package:training/provider_state_management/eligibility_screen.dart';
+import 'package:training/state_notifier/my_state_app.dart';
 import 'user_details/user_details.dart';
 import 'list_of_colors/colorsList.dart';
 import 'package:training/Calculator/calculator.dart';
 import 'button_color_change/button_color_change.dart';
 import 'sort/sort.dart';
 import 'form/form.dart';
+import 'package:training/provider_state_management/eligibility_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -43,7 +49,7 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         backgroundColor: Colors.lime[500],
         leading: const Icon(
-            Icons.on_device_training_outlined,
+          Icons.on_device_training_outlined,
           color: Colors.deepPurple,
           size: 25,
         ),
@@ -57,24 +63,73 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       body: const Center(
-        child: Column(
+        child: FittedBox(
+            child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            MyButton(btnName: 'Login Page', page: AuthPage(),),
             SizedBox(height: 30),
-            MyButton(btnName: 'User Details', page: UserDetails(),),
+            MyButton(
+              btnName: 'Login Page',
+              page: AuthPage(),
+            ),
             SizedBox(height: 30),
-            MyButton(btnName: 'List Of Colors', page: ColorsList(),),
+            MyButton(
+              btnName: 'User Details',
+              page: UserDetails(),
+            ),
             SizedBox(height: 30),
-            MyButton(btnName: 'Calculator', page: Calculator(),),
+            MyButton(
+              btnName: 'List Of Colors',
+              page: ColorsList(),
+            ),
             SizedBox(height: 30),
-            MyButton(btnName: 'Button Color Change', page: BtnColorChange(),),
+            MyButton(
+              btnName: 'Calculator',
+              page: Calculator(),
+            ),
             SizedBox(height: 30),
-            MyButton(btnName: 'Sort', page: Sort(),),
+            MyButton(
+              btnName: 'Button Color Change',
+              page: BtnColorChange(),
+            ),
             SizedBox(height: 30),
-            MyButton(btnName: 'Form', page: MyForm(),),
+            MyButton(
+              btnName: 'Sort',
+              page: Sort(),
+            ),
+            SizedBox(height: 30),
+            MyButton(
+              btnName: 'Form',
+              page: MyForm(),
+            ),
+            SizedBox(height: 30),
+            MyButton(
+              btnName: 'Built Values',
+              page: MyBuildValues(),
+            ),
+            SizedBox(height: 30),
+            MyButton(
+              btnName: 'HTTP',
+              page: HttpMain(),
+            ),
+            SizedBox(height: 30),
+            MyButton(
+              btnName: 'Inherited Widget',
+              page: RootWidget(),
+            ),
+            SizedBox(height: 30),
+            MyButton(
+              btnName: 'Provider State Management',
+              page: EligiblityScreen(),
+            ),
+            SizedBox(height: 30),
+            MyButton(
+              btnName: 'State Notifier Provider',
+              page: MyStateApp(),
+            ),
+            SizedBox(height: 30),
           ],
-        ),
+        )),
       ),
     );
   }
@@ -99,7 +154,7 @@ class MyButton extends StatelessWidget {
         borderRadius: BorderRadius.circular(4),
       ),
       child: GestureDetector(
-        onTap: (){
+        onTap: () {
           Navigator.push(
             context,
             MaterialPageRoute(
